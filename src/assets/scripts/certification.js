@@ -1,46 +1,46 @@
 const allCertificates = [
   {
     name: "PT Otak Kanan",
-    src: "../../uploads/certification/certificate1.jpg",
+    src: "/uploads/certification/certificate1.jpg",
   },
   {
     name: "Microsoft Bootcamp",
-    src: "../../uploads/certification/certificate2.jpg",
+    src: "/uploads/certification/certificate2.jpg",
   },
   {
     name: "Tes Potensi Akademik",
-    src: "../../uploads/certification/certificate3.jpg",
+    src: "/uploads/certification/certificate3.jpg",
   },
-  { name: "Fitcom 2025", src: "../../uploads/certification/certificate4.jpg" },
-  { name: "freeCodeCamp", src: "../../uploads/certification/certificate5.jpg" },
-  { name: "JHIC 2025", src: "../../uploads/certification/certificate6.jpg" },
+  { name: "Fitcom 2025", src: "/uploads/certification/certificate4.jpg" },
+  { name: "freeCodeCamp", src: "/uploads/certification/certificate5.jpg" },
+  { name: "JHIC 2025", src: "/uploads/certification/certificate6.jpg" },
   {
     name: "Dicoding - Web Development",
-    src: "../../uploads/certification/certificate7-1.jpg",
-  },
-  {
-    name: "Dicoding - Web Development",
-    src: "../../uploads/certification/certificate7-2.png",
+    src: "/uploads/certification/certificate7-1.jpg",
   },
   {
     name: "Dicoding - Web Development",
-    src: "../../uploads/certification/certificate7-3.png",
+    src: "/uploads/certification/certificate7-2.png",
+  },
+  {
+    name: "Dicoding - Web Development",
+    src: "/uploads/certification/certificate7-3.png",
   },
   {
     name: "Dicoding - Financial Literacy",
-    src: "../../uploads/certification/certificate8-1.jpg",
+    src: "/uploads/certification/certificate8-1.jpg",
   },
   {
     name: "Dicoding - Financial Literacy",
-    src: "../../uploads/certification/certificate8-2.png",
+    src: "/uploads/certification/certificate8-2.png",
   },
   {
     name: "Dicoding - Financial Literacy",
-    src: "../../uploads/certification/certificate8-3.png",
+    src: "/uploads/certification/certificate8-3.png",
   },
   {
     name: "High Achieving Students",
-    src: "../../uploads/certification/certificate9.jpeg",
+    src: "/uploads/certification/certificate9.jpeg",
   },
 ];
 
@@ -143,6 +143,7 @@ document.querySelectorAll("dialog").forEach((dialog) => {
   });
 });
 
+window.openCertModal = openCertModal;
 window.openZoom = openZoom;
 window.closeModal = closeModal;
 window.scrollCarousel = scrollCarousel;
