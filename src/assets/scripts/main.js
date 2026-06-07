@@ -1,4 +1,5 @@
 import "flyonui/flyonui";
+import { openCertModal } from "./certification.js";
 
 const themeToggleBtn = document.getElementById("theme-toggle");
 const htmlElement = document.documentElement;

@@ -52,7 +52,7 @@ function openZoom(imageSrc) {
   document.body.style.overflow = "hidden";
 }
 
-function openCertModal() {
+export function openCertModal() {
   const modal = document.getElementById("modal_all_certs");
   const loading = document.getElementById("certLoading");
   const grid = document.getElementById("certGrid");
@@ -142,3 +142,7 @@ document.querySelectorAll("dialog").forEach((dialog) => {
     }
   });
 });
+
+window.openZoom = openZoom;
+window.closeModal = closeModal;
+window.scrollCarousel = scrollCarousel;
