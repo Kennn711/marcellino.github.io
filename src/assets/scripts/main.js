@@ -1,6 +1,5 @@
 import "flyonui/flyonui";
 
-// --- Dark/Light Mode Logic ---
 const themeToggleBtn = document.getElementById("theme-toggle");
 const htmlElement = document.documentElement;
 
@@ -16,8 +15,6 @@ function setTheme(theme) {
   }
 }
 
-// Cek preferensi awal: Coba ambil dari localStorage, kalau tidak ada, default ke 'dark'
-// (Karena Vercel/Next.js aesthetics sangat identik dengan dark mode)
 const savedTheme = localStorage.getItem("portfolio-theme");
 if (savedTheme) {
   setTheme(savedTheme);
@@ -30,8 +27,6 @@ themeToggleBtn.addEventListener("click", () => {
   setTheme(isDark ? "light" : "dark");
 });
 
-// --- Animasi Scroll (Intersection Observer) ---
-// Membuat elemen muncul perlahan saat di-scroll ke area pandang (viewport)
 const observerOptions = {
   root: null,
   rootMargin: "0px",

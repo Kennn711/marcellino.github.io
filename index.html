@@ -9,55 +9,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <title>Marcellino Putra Kurniawan | Fullstack Website Developer</title>
+  <title>Marcellino Putra Kurniawan | Fullstack Web Developer</title>
 
-  <style>
-    html,
-    body {
-      max-width: 100vw;
-      overflow-x: hidden !important;
-    }
-
-    /* MODAL BACKDROP STYLING */
-    dialog::backdrop {
-      background: rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(4px);
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    /* MODAL ANIMATION IN & OUT */
-    dialog {
-      opacity: 0;
-      transform: scale(0.95) translateY(10px);
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    dialog[open] {
-      opacity: 1;
-      transform: scale(1) translateY(0);
-    }
-
-    /* Class ini ditambahkan oleh JS saat tombol close ditekan */
-    dialog.closing {
-      opacity: 0 !important;
-      transform: scale(0.95) translateY(10px) !important;
-    }
-
-    dialog.closing::backdrop {
-      background: rgba(0, 0, 0, 0) !important;
-      backdrop-filter: blur(0px) !important;
-    }
-
-    /* CAROUSEL SCROLLBAR HIDE */
-    .carousel-container::-webkit-scrollbar {
-      display: none;
-    }
-
-    .carousel-container {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
-  </style>
+  <script type="module" src="src/assets/scripts/main.js"></script>
+  <script src="src/assets/scripts/certification.js"></script>
 </head>
 
 <body
@@ -413,9 +368,9 @@
           <img src="./uploads/certification/certificate1.jpg" alt="Certificate 1"
             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
         </div>
-        <div onclick="openZoom('./uploads/certification/certificate2.jpg')"
+        <div onclick="openZoom('./uploads/certification/certificate9.jpeg')"
           class="group aspect-square overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-800 hover:border-zinc-500 dark:hover:border-zinc-400 bg-zinc-100 dark:bg-zinc-900 cursor-pointer transition-colors">
-          <img src="./uploads/certification/certificate2.jpg" alt="Certificate 2"
+          <img src="./uploads/certification/certificate9.jpeg" alt="Certificate 9"
             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
         </div>
         <div onclick="openZoom('./uploads/certification/certificate3.jpg')"
@@ -479,7 +434,6 @@
   </footer>
 
   <!-- DIALOGS / MODALS -->
-
   <dialog id="modal_doc_pkl"
     class="bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 rounded-xl shadow-2xl p-0 w-[92%] sm:w-[90%] max-w-3xl text-zinc-900 dark:text-zinc-50 m-auto">
     <div class="p-4 sm:p-6 relative">
@@ -702,119 +656,6 @@
 
     </div>
   </dialog>
-
-  <script type="module" src="./src/assets/scripts/main.js"></script>
-  <script>
-    const allCertificates = [
-      { name: 'Certificate 1', src: './uploads/certification/certificate1.jpg' },
-      { name: 'Certificate 2', src: './uploads/certification/certificate2.jpg' },
-      { name: 'Certificate 3', src: './uploads/certification/certificate3.jpg' },
-      { name: 'Certificate 4', src: './uploads/certification/certificate4.jpg' },
-      { name: 'Certificate 5', src: './uploads/certification/certificate5.jpg' },
-      { name: 'Certificate 6', src: './uploads/certification/certificate6.jpg' },
-      { name: 'Certificate 7-1', src: './uploads/certification/certificate7-1.jpg' },
-      { name: 'Certificate 7-2', src: './uploads/certification/certificate7-2.png' },
-      { name: 'Certificate 7-3', src: './uploads/certification/certificate7-3.png' },
-      { name: 'Certificate 8-1', src: './uploads/certification/certificate8-1.jpg' },
-      { name: 'Certificate 8-2', src: './uploads/certification/certificate8-2.png' },
-      { name: 'Certificate 8-3', src: './uploads/certification/certificate8-3.png' }
-    ];
-
-    function openZoom(imageSrc) {
-      const modal = document.getElementById('custom_zoom_overlay');
-      const img = document.getElementById('zoomed_image');
-      img.src = imageSrc;
-      modal.showModal();
-      document.body.style.overflow = 'hidden';
-    }
-
-    function openCertModal() {
-      const modal = document.getElementById('modal_all_certs');
-      const loading = document.getElementById('certLoading');
-      const grid = document.getElementById('certGrid');
-      const searchInput = document.getElementById('certSearch');
-
-      searchInput.value = '';
-      modal.showModal();
-      document.body.style.overflow = 'hidden';
-
-      loading.classList.remove('hidden');
-      loading.classList.add('flex');
-      grid.classList.add('hidden');
-      grid.classList.remove('grid');
-
-      setTimeout(() => {
-        loading.classList.add('hidden');
-        loading.classList.remove('flex');
-        grid.classList.remove('hidden');
-        grid.classList.add('grid');
-        renderCerts(allCertificates);
-      }, 800);
-    }
-
-    function renderCerts(certs) {
-      const grid = document.getElementById('certGrid');
-      grid.innerHTML = '';
-
-      if (certs.length === 0) {
-        grid.innerHTML = `<div class="col-span-full text-center text-zinc-500 py-10">No certificates found.</div>`;
-        return;
-      }
-
-      certs.forEach(cert => {
-        const div = document.createElement('div');
-        div.className = 'flex flex-col items-center gap-1 sm:gap-2';
-        div.innerHTML = `
-          <div onclick="openZoom('${cert.src}')" class="group w-full aspect-square overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-800 hover:border-zinc-500 dark:hover:border-zinc-400 bg-zinc-100 dark:bg-zinc-900 cursor-pointer transition-colors">
-            <img src="${cert.src}" alt="${cert.name}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" loading="lazy">
-          </div>
-          <p class="text-xs sm:text-sm font-medium text-zinc-700 dark:text-zinc-300 text-center px-1 sm:px-2 truncate w-full" title="${cert.name}">${cert.name}</p>
-        `;
-        grid.appendChild(div);
-      });
-    }
-
-    document.getElementById('certSearch')?.addEventListener('input', (e) => {
-      const query = e.target.value.toLowerCase();
-      const filtered = allCertificates.filter(c => c.name.toLowerCase().includes(query));
-      renderCerts(filtered);
-    });
-
-    function closeModal(modalId) {
-      const modal = document.getElementById(modalId);
-      modal.classList.add('closing');
-
-      setTimeout(() => {
-        modal.close();
-        modal.classList.remove('closing');
-
-        const anyModalOpen = Array.from(document.querySelectorAll('dialog')).some(d => d.hasAttribute('open'));
-        if (!anyModalOpen) {
-          document.body.style.overflow = '';
-        }
-      }, 300);
-    }
-
-    function scrollCarousel(carouselId, direction) {
-      const container = document.getElementById(carouselId);
-      const scrollAmount = container.clientWidth;
-      container.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
-    }
-
-    document.querySelectorAll('dialog').forEach(dialog => {
-      dialog.addEventListener('click', (e) => {
-        const dialogDimensions = dialog.getBoundingClientRect()
-        if (
-          e.clientX < dialogDimensions.left ||
-          e.clientX > dialogDimensions.right ||
-          e.clientY < dialogDimensions.top ||
-          e.clientY > dialogDimensions.bottom
-        ) {
-          closeModal(dialog.id);
-        }
-      })
-    });
-  </script>
 </body>
 
 </html>
